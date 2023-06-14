@@ -13,4 +13,3 @@ Komenda 'sudo docker logs container' służy do wyświetlania dziennika (logów)
 d. sprawdzenia, ile warstw posiada zbudowany obraz.</br>
 Komenda 'sudo docker history image' służy do wyświetlania historii warstw obrazu</br>
 <![poprawa5](https://github.com/pollubNorbert/server/assets/135065827/5de2eab3-b904-4eb6-9334-3f54aba2916a)</br>
-

@@ -1,5 +1,7 @@
 # server
-Należy podać polecenia niezbędne do:</br>
+Zad2: </br>
+![zad2](https://github.com/pollubNorbert/server/assets/135065827/319284f3-81d9-4d64-85a0-9cfe5d7f82a5)</br>
+Zad1: Należy podać polecenia niezbędne do:</br>
 a. zbudowania opracowanego obrazu kontenera,</br>
 'sudo docker build -t image .' to komenda używana do budowania obrazu kontenera na podstawie pliku 'Dockerfile' w bieżącym katalogu.</br>
 ![poprawa1](https://github.com/pollubNorbert/server/assets/135065827/cdea0cdb-4405-4da2-9a87-6a16980939e8)</br>

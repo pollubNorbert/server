@@ -1,16 +1,16 @@
 # server
 Należy podać polecenia niezbędne do:</br>
 a. zbudowania opracowanego obrazu kontenera,</br>
-'sudo docker build -t fullstack .' to komenda używana do budowania obrazu kontenera na podstawie pliku 'Dockerfile' w bieżącym katalogu.</br>
-![image](https://github.com/pollubNorbert/server/assets/135065827/6465bcdb-3aa1-41a5-871b-d86f184c20ac)</br>
-![fullstack2](https://github.com/pollubNorbert/server/assets/135065827/fe7569d0-b50d-4497-b717-fcb4b361f709)</br>
+'sudo docker build -t image .' to komenda używana do budowania obrazu kontenera na podstawie pliku 'Dockerfile' w bieżącym katalogu.</br>
+![poprawa1](https://github.com/pollubNorbert/server/assets/135065827/cdea0cdb-4405-4da2-9a87-6a16980939e8)</br>
+![poprawa2](https://github.com/pollubNorbert/server/assets/135065827/08bd5254-e9f6-4d1c-98be-686fd5639fc0)</br>
 b. uruchomienia kontenera na podstawie zbudowanego obrazu,</br>
-Komenda 'sudo docker run --name firstContainer -p 8000:8000 fullstack' służy do uruchomienia kontenera na podstawie obrazu o nazwie 'fullstack' i nadania mu nazwy 'firstContainer'.
-![fullstack3](https://github.com/pollubNorbert/server/assets/135065827/79819880-af4b-4381-99df-b275c1a27f0d)</br>
+Komenda 'sudo docker run --name container -p 8088:8088 image' służy do uruchomienia kontenera na podstawie obrazu o nazwie 'image' i nadania mu nazwy 'container'.
+![poprawa3](https://github.com/pollubNorbert/server/assets/135065827/6f6f097e-90bd-4283-9990-3a093a27db38)</br>
 c. sposobu uzyskania informacji, które wygenerował serwer w trakcie uruchamiana kontenera</br>
-Komenda 'sudo docker logs firstContainer' służy do wyświetlania dziennika (logów) dla kontenera o nazwie 'firstContainer'.</br>
-![fullstack4](https://github.com/pollubNorbert/server/assets/135065827/106140ff-e432-444b-8b0d-0541e31f83a4)</br>
+Komenda 'sudo docker logs container' służy do wyświetlania dziennika (logów) dla kontenera o nazwie 'firstContainer'.</br>
+<![poprawa4](https://github.com/pollubNorbert/server/assets/135065827/2d637889-8c1e-400d-ae08-e2ab9812aac8)</br>
 d. sprawdzenia, ile warstw posiada zbudowany obraz.</br>
-Komenda 'sudo docker history fullstack' służy do wyświetlania historii warstw obrazu</br>
-![fullstack5](https://github.com/pollubNorbert/server/assets/135065827/171a9928-1f23-4415-a2ec-e17cb2733cc7)</br>
+Komenda 'sudo docker history image' służy do wyświetlania historii warstw obrazu</br>
+<![poprawa5](https://github.com/pollubNorbert/server/assets/135065827/5de2eab3-b904-4eb6-9334-3f54aba2916a)</br>
 

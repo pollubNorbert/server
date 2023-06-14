@@ -5,7 +5,7 @@ a. zbudowania opracowanego obrazu kontenera,</br>
 ![poprawa1](https://github.com/pollubNorbert/server/assets/135065827/cdea0cdb-4405-4da2-9a87-6a16980939e8)</br>
 ![poprawa2](https://github.com/pollubNorbert/server/assets/135065827/08bd5254-e9f6-4d1c-98be-686fd5639fc0)</br>
 b. uruchomienia kontenera na podstawie zbudowanego obrazu,</br>
-Komenda 'sudo docker run --name container -p 8088:8088 image' służy do uruchomienia kontenera na podstawie obrazu o nazwie 'image' i nadania mu nazwy 'container'.
+Komenda 'sudo docker run --name container -p 8088:8088 image' służy do uruchomienia kontenera na podstawie obrazu o nazwie 'image' i nadania mu nazwy 'container'.</br>
 ![poprawa3](https://github.com/pollubNorbert/server/assets/135065827/6f6f097e-90bd-4283-9990-3a093a27db38)</br>
 c. sposobu uzyskania informacji, które wygenerował serwer w trakcie uruchamiana kontenera</br>
 Komenda 'sudo docker logs container' służy do wyświetlania dziennika (logów) dla kontenera o nazwie 'firstContainer'.</br>

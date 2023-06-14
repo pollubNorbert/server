@@ -13,7 +13,7 @@ COPY requirements.txt .
 # -- instalacja zależności -- /nw
 RUN pip install --no-cache-dir -r requirements.txt
 
-# -- skopiowanie plików źródłowych -- / nw
+# -- skopiowanie plików źródłowych -- /nw
 COPY server.py .
 
 # -- etap 2 - tworzenie obrazu kontenera -- /nw
@@ -24,6 +24,9 @@ WORKDIR /app
 
 # -- skopiowanie plików z poprzedniego etapu -- /nw
 COPY --from=builder /app .
+
+# -- instalacja bibliotek Flask i pytz -- /nw
+RUN pip install flask pytz
 
 # -- informacje o autorze pliku -- /nw
 LABEL author="Norbert Wojcik"

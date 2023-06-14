@@ -1,50 +1,40 @@
-import socket
-import datetime
+from flask import Flask, request
+from datetime import datetime
+from pytz import timezone
 
-# -- informacje o serwerze -- /nw
-author_name = "Norbert Wojcik"
-tcp_port = 8000
+app = Flask(__name__)
 
-# -- logowanie informacji -- /nw
-current_time = datetime.datetime.now()
-log_message = f"Serwer uruchomiony przez: {author_name}\nData uruchomienia: {current_time}\nPort TCP: {tcp_port}"
-print(log_message)
+# -- dane autora serwera -- /nw
+author_name = "Norbert"
+author_surname = "Wojcik"
 
-# -- utworzenie gniazda serwera -- /nw
-server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_socket.bind(('localhost', tcp_port))
-server_socket.listen(1)
-print("Serwer nasłuchuje na porcie", tcp_port)
+@app.route('/')
+def index():
+    # -- pobranie adresu IP klienta -- /nw
+    client_ip = request.remote_addr
 
-def handle_client_connection(client_socket):
-    # -- obsługa połączenia z klientem -- /nw
-    client_address = client_socket.getpeername()
-    print("Połączono z klientem o adresie", client_address)
+    # -- pobranie bieżącej daty i godziny -- /nw
+    client_timezone = timezone(request.headers.get('X-Appengine-User-Timezone', 'UTC'))
+    client_time = datetime.now(client_timezone)
 
-    try:
-        # -- przygotowanie strony -- /nw
-        client_ip = client_address[0]
-        current_time = datetime.datetime.now()
-        response = f"Adres IP klienta: {client_ip}\nData i czas w strefie czasowej klienta: {current_time}"
+    # -- tworzenie treści strony -- /nw
+    page_content = f"<h1>Informacje o kliencie</h1>" \
+                   f"<p>Adres IP klienta: {client_ip}</p>" \
+                   f"<p>Data i godzina w strefie czasowej klienta: {client_time}</p>"
 
-        # -- wysłanie strony -- /nw
-        http_response = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n" + response
-        client_socket.sendall(http_response.encode())
-    except Exception as e:
-        print("Wystąpił błąd podczas obsługi klienta:", e)
+    return page_content
 
-    finally:
-        # -- zamknięcie połączenia -- /nw
-        client_socket.close()
-        print("Połączenie z klientem zakończone")
+if __name__ == '__main__':
+    #-- pobranie bieżącej daty i godziny uruchomienia serwera -- /nw
+    server_start_time = datetime.now()
 
-try:
-    while True:
-        # -- oczekiwanie na połączenie klienta -- /nw
-        client_socket, client_address = server_socket.accept()
-        handle_client_connection(client_socket)
-except KeyboardInterrupt:
-    print("Serwer zatrzymany.")
+    # -- pobranie numeru portu -- /nw
+    port = 8088
 
-# zamknięcie gniazda serwera -- /nw
-server_socket.close()
+    # -- wyświetlenie informacji o uruchomieniu serwera -- /nw
+    print(f"Serwer uruchomiony. Data uruchomienia: {server_start_time}")
+    print(f"Autor serwera: {author_name} {author_surname}")
+    print(f"Serwer nasłuchuje na porcie: {port}")
+
+    # -- uruchomienie serwera Flask -- /nw
+    app.run(port=port)
